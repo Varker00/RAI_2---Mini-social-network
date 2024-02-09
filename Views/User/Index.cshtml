@@ -1,0 +1,10 @@
+﻿@using RAI_2.Controllers;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = Model ? "_AdminLayout" : "_UserLayout";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Logged in as @ViewBag.Username</h1>
+</div>

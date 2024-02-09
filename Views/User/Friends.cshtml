@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "User List";
+    string friends = ViewBag.friends;
+}
+
+@if (ViewBag.Result != null && !(bool)ViewBag.Result)
+{
+    <script>
+        alert('Error removing friend!');
+    </script>
+}
+
+@if (friends == "[]")
+{
+     <p>No friends :( <br/>
+         <a asp-area="" asp-controller="User" asp-action="AddFriend">Add some?</a><br/>
+        <a asp-area="" asp-controller="User" asp-action="Import">Import some?</a>
+    </p>
+}
+else{
+    <a asp-area="" asp-controller="User" asp-action="Export">Export friends</a><br/>
+    <a asp-area="" asp-controller="User" asp-action="Import">Import friends</a>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Username</th>
+    </tr>
+        @foreach (string friend in friends.Substring(1, friends.Length - 2).Split(","))
+    {
+            string u = friend.Substring(1, friend.Length - 2);
+
+            <tr>
+                <td>
+                    @Html.ActionLink("Remove", "RemoveFriend", "User", new { username = u})
+            </td>
+            <td>
+                @u
+            </td>
+        </tr>
+    }
+       
+</table>
+}

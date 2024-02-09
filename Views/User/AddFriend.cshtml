@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Add a friend";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Add friend</h1>
+        @if(ViewBag.Result != null)
+    {
+        if(ViewBag.Result) {
+            <p>Friend added!</p>
+        }
+        else
+        {
+            <p>Adding friend failed!</p>
+        }
+    }
+    <form asp-controller="User" asp-action="AddFriendAction">
+        <label>Login:</label>
+        <input name="username" />
+        <input type="submit" value="Login"/>
+    </form>
+    
+</div>

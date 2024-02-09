@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Add new user";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login page</h1>
+    <form asp-controller="User" asp-action="Add">
+        <label>Username:</label>
+        <input name="username" />
+        <input type="submit" value="Add" />
+    </form>
+
+</div>

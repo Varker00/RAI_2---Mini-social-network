@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "User List";
+}
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Username</th>
+        <th>Creation date</th>
+    </tr>
+    @foreach(User u in Model) 
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "User", new { username = u.Username})
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => u.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => u.CreatedDate)
+            </td>
+        </tr>
+    }
+       
+</table>
